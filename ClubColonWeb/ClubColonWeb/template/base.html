@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block titulo %}C.A. Colón{% endblock %}</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .navbar-custom { background-color: #000000; } /* Negro */
+        .navbar-custom .nav-link, .navbar-custom .navbar-brand { color: #ffffff; }
+        .red-accent { color: #d60000; font-weight: bold; } /* Rojo Colón */
+        .btn-colon { background-color: #d60000; color: white; }
+        .btn-colon:hover { background-color: #a30000; color: white; }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{% url 'inicio' %}"><span class="red-accent">🔴⚫ COLÓN</span> GESTIÓN</a>
+            <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="{% url 'inicio' %}">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'crear_socio' %}">Nuevo Socio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'crear_deporte' %}">Nuevo Deporte</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'registrar_pago' %}">Registrar Pago</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'buscar_socio' %}">🔍 Buscar</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenido Dinámico -->
+    <div class="container mt-5">
+        {% block contenido %}
+        {% endblock %}
+    </div>
+
+    <footer class="bg-dark text-white text-center text-lg-start mt-5 p-3">
+        <div class="text-center">
+            © 2025 Club Atlético Colón de Santa Fe - Sistema de Gestión
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block titulo %}Registrar Pago{% endblock %}
+
+{% block contenido %}
+    <h2 class="mb-4">💰 Registrar Pago de Cuota</h2>
+    <div class="alert alert-info">Selecciona el socio y el monto abonado.</div>
+    <form action="" method="POST" class="w-50 mx-auto border p-4 shadow bg-light rounded">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-success w-100">Confirmar Pago</button>
+    </form>
+{% endblock %}

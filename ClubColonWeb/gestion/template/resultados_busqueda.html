@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block titulo %}Resultados{% endblock %}
+
+{% block contenido %}
+    <h3>Resultados para: "<span class="text-danger">{{ busqueda }}</span>"</h3>
+    
+    {% if socios %}
+        <div class="list-group mt-4">
+        {% for socio in socios %}
+            <a href="#" class="list-group-item list-group-item-action" aria-current="true">
+                <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">{{ socio.apellido }}, {{ socio.nombre }}</h5>
+                <small>DNI: {{ socio.dni }}</small>
+                </div>
+                <p class="mb-1">Categoría: <strong>{{ socio.obtener_categoria }}</strong></p>
+                <small class="text-muted">Ingreso: {{ socio.fecha_ingreso }}</small>
+            </a>
+        {% endfor %}
+        </div>
+    {% else %}
+        <div class="alert alert-warning mt-4">
+            No se encontraron socios con ese apellido.
+        </div>
+    {% endif %}
+    
+    <div class="mt-4 text-center">
+        <a href="{% url 'buscar_socio' %}" class="btn btn-outline-dark">Nueva búsqueda</a>
+    </div>
+{% endblock %}

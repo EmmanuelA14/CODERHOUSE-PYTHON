@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block titulo %}Nuevo Socio{% endblock %}
+
+{% block contenido %}
+    <h2 class="mb-4">📋 Registrar Nuevo Socio</h2>
+    <form action="" method="POST" class="w-50 mx-auto border p-4 shadow bg-light rounded">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-colon w-100">Guardar Socio</button>
+    </form>
+{% endblock %}

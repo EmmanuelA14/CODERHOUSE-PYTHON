@@ -1,5 +1,0 @@
-setup.py
-Gestion_Club_Atletico_Colon.egg-info/PKG-INFO
-Gestion_Club_Atletico_Colon.egg-info/SOURCES.txt
-Gestion_Club_Atletico_Colon.egg-info/dependency_links.txt
-Gestion_Club_Atletico_Colon.egg-info/top_level.txt

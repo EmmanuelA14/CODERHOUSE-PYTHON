@@ -1,9 +1,0 @@
-Metadata-Version: 2.4
-Name: Gestion-Club-Atletico-Colon
-Version: 1.1
-Summary: Clase para el modelamiento de Socios del Club Atlético Colon de Santa Fe con categorías dinámicas (Cadete, Activo, Vitalicio).
-Author: Emmanuel Aglieri
-Author-email: e-aglieri@hotmail.com
-Dynamic: author
-Dynamic: author-email
-Dynamic: summary
