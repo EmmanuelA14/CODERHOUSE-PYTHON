@@ -1,24 +1,23 @@
-from django.urls import path
-from . import views
+from django.shortcuts import render
+from django.http import HttpResponse
 
-# Define el namespace de la aplicación para evitar conflictos de nombres
-app_name = 'gestion'
+# Vista principal que renderiza la plantilla de inicio.
+def inicio(request):
+    # 'mensaje' es solo un ejemplo, puedes pasar datos dinámicos aquí.
+    mensaje = "¡Bienvenido al Panel de Gestión!"
+    return render(request, 'gestion/inicio.html', {'mensaje': mensaje})
 
-urlpatterns = [
-    # 1. Ruta de Inicio (Dashboard principal del sistema de gestión)
-    path('', views.inicio, name='inicio'),
+# --- Vistas Placeholder para navegación de base.html ---
 
-    # 2. Ruta para el formulario de creación de un nuevo socio
-    path('crear-socio/', views.nuevo_socio, name='crear_socio'),
-    
-    # 3. Ruta para el formulario de creación de un nuevo deporte/actividad
-    path('crear-deporte/', views.nuevo_deporte, name='crear_deporte'),
-    
-    # 4. Ruta para registrar un nuevo pago de cuota
-    path('registrar-pago/', views.registrar_pago, name='registrar_pago'),
+def crear_socio(request):
+    # Renderiza una plantilla genérica para las nuevas URLs
+    return render(request, 'gestion/placeholder.html', {'title': 'Crear Nuevo Socio'})
 
-    # 5. Ruta para la funcionalidad de búsqueda de socios o registros
-    path('buscar-socio/', views.buscar_socio, name='buscar_socio'),
+def crear_deporte(request):
+    return render(request, 'gestion/placeholder.html', {'title': 'Crear Nuevo Deporte'})
 
-    # NOTA: Asegúrate de que todas estas funciones estén definidas en gestion/views.py
-]
+def registrar_pago(request):
+    return render(request, 'gestion/placeholder.html', {'title': 'Registrar Pago de Socio'})
+
+def buscar_socio(request):
+    return render(request, 'gestion/placeholder.html', {'title': 'Buscar Socios'})

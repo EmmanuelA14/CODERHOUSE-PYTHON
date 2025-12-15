@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block titulo %}Buscar Socio{% endblock %}
+
+{% block contenido %}
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <h2 class="text-center mb-4">🔍 Buscar Socio en el Padrón</h2>
+            <form action="" method="GET" class="d-flex mb-5">
+                {{ form.criterio }}
+                <button class="btn btn-colon ms-2" type="submit">BUSCAR</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

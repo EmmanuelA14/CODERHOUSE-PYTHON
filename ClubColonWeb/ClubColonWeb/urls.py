@@ -16,16 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from django.shortcuts import redirect
 
 urlpatterns = [
-    # 1. URL para el panel de administración de Django
     path('admin/', admin.site.urls),
-
-    # 2. Inclusión CORRECTA de las URLs de la aplicación 'gestion'
-    # Esto debe ser el único 'include' que apunte a 'gestion.urls'
-    path('gestion/', include('gestion.urls', namespace='gestion')),
-
-    # 3. Redirección de la raíz del sitio (/) a la página de inicio de la gestión.
-    path('', lambda request: redirect('gestion:inicio'), name='root_redirect'),
+    # La inclusión aquí hace que todos los nombres de patrones definidos en 
+    # gestion/urls.py (incluido 'inicio') sean accesibles.
+    path('gestion/', include('gestion.urls')),
 ]

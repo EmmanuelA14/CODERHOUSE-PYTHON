@@ -55,7 +55,7 @@ ROOT_URLCONF = 'ClubColonWeb.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR, 'ClubColonWeb/templates'], # Carpeta global para base.html
+        'DIRS': [BASE_DIR, 'templates'], # Carpeta global para base.html
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -105,7 +105,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'es'
 
-TIME_ZONE = 'Amercia/Argentina/Buenos_Aires'
+TIME_ZONE = 'America/Argentina/Buenos_Aires'
 
 USE_I18N = True
 
