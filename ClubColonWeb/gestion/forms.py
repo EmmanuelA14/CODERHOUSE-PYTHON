@@ -1,5 +1,8 @@
 from django import forms
-from .models import Deporte, Socio, PagoCuota
+from .models import Deporte, Socio, PagoCuota , Perfil
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
+
 
 # Formulario 1: Carga de Deportes (Modelo Deporte)
 class DeporteForm(forms.ModelForm):
@@ -65,3 +68,15 @@ class BusquedaSocioForm(forms.Form):
             'placeholder': 'Buscar por apellido, Ej: López'
         })
     )
+# Formulario de Registro de Usuario y Perfil
+class RegistroForm(UserCreationForm):
+    email = forms.EmailField(required=True)
+
+    class Meta:
+        model = User
+        fields = ['username', 'email']
+
+class PerfilForm(forms.ModelForm):
+    class Meta:
+        model = Perfil
+        fields = ['avatar']

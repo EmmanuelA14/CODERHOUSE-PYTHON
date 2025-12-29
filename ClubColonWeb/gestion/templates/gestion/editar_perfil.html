@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+<div class="row justify-content-center">
+    <div class="col-md-5">
+        <div class="card shadow">
+            <div class="card-header navbar-custom text-white text-center">
+                <h4>Mi Perfil</h4>
+            </div>
+            {% load static %} <div class="card-body text-center">
+                {% if user.perfil.avatar %}
+                    <img src="{{ user.perfil.avatar.url }}" class="rounded-circle mb-3 shadow" style="width: 120px; height: 120px; object-fit: cover; border: 3px solid #d60000;">
+                {% else %}
+                    <img src="{% static 'img/avatar.png' %}" class="rounded-circle mb-3 shadow" style="width: 120px; height: 120px; object-fit: cover; border: 3px solid #d60000;">
+                {% endif %}
+                
+                <h5 class="mb-4">Usuario: {{ user.username }}</h5>
+
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label class="form-label">Subir Nuevo Avatar</label>
+                        {{ form.avatar }}
+                    </div>
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-colon">Guardar Cambios</button>
+                        <a href="{% url 'inicio' %}" class="btn btn-outline-secondary">Cancelar</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

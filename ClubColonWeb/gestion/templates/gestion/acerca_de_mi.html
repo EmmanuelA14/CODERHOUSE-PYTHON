@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+<div class="container mt-4">
+    <div class="card shadow p-5 text-center border-0" style="border-radius: 15px;">
+        <h1 class="red-accent mb-4">Acerca de mí</h1>
+        <div class="row align-items-center">
+            <div class="col-md-4">
+                <img src="https://via.placeholder.com/150" class="img-fluid rounded-circle shadow" alt="Foto Alumno">
+            </div>
+            <div class="col-md-8 text-start">
+                <h3>Nombre: Emmanuel Aglieri</h3>
+                <p class="lead">Estudiante de Python - Coderhouse</p>
+                <p><strong>Proyecto:</strong> Sistema de Gestión "Club Atlético Colón".</p>
+                <p>Este sistema fue desarrollado para centralizar la administración de socios y pagos del club, aplicando conceptos de Django MVT y Autenticación.</p>
+                <hr>
+                <p class="text-muted">Comisión: 87370 | 2025</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

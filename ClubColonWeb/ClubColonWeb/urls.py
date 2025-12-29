@@ -16,10 +16,20 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.contrib.auth import views as auth_views
+from django.conf import settings
+from django.conf.urls.static import static
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     # La inclusión aquí hace que todos los nombres de patrones definidos en 
     # gestion/urls.py (incluido 'inicio') sean accesibles.
     path('gestion/', include('gestion.urls')),
+    # Rutas de Login y Logout
+    path('login/', auth_views.LoginView.as_view(template_name='gestion/login.html'), name='login'),
+    path('logout/', auth_views.LogoutView.as_view(), name='logout'),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,23 +1,15 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.urls import path
+from . import views  # Aquí importamos el archivo de vistas que me pasaste
 
-# Vista principal que renderiza la plantilla de inicio.
-def inicio(request):
-    # 'mensaje' es solo un ejemplo, puedes pasar datos dinámicos aquí.
-    mensaje = "¡Bienvenido al Panel de Gestión!"
-    return render(request, 'gestion/inicio.html', {'mensaje': mensaje})
-
-# --- Vistas Placeholder para navegación de base.html ---
-
-def crear_socio(request):
-    # Renderiza una plantilla genérica para las nuevas URLs
-    return render(request, 'gestion/placeholder.html', {'title': 'Crear Nuevo Socio'})
-
-def crear_deporte(request):
-    return render(request, 'gestion/placeholder.html', {'title': 'Crear Nuevo Deporte'})
-
-def registrar_pago(request):
-    return render(request, 'gestion/placeholder.html', {'title': 'Registrar Pago de Socio'})
-
-def buscar_socio(request):
-    return render(request, 'gestion/placeholder.html', {'title': 'Buscar Socios'})
+urlpatterns = [
+    path('', views.inicio, name='inicio'),
+    path('nuevo-socio/', views.nuevo_socio, name='nuevo_socio'),
+    path('nuevo-deporte/', views.nuevo_deporte, name='nuevo_deporte'),
+    path('registrar-pago/', views.registrar_pago, name='registrar_pago'),
+    path('buscar-socio/', views.buscar_socio, name='buscar_socio'),
+    path('registro/', views.registro, name='registro'),
+    path('perfil/editar/', views.editar_perfil, name='editar_perfil'),
+    path('acerca-de-mi/', views.acerca_de_mi, name='acerca_de_mi'),
+    path('editar-socio/<int:id>/', views.editar_socio, name='editar_socio'),
+    path('eliminar-socio/<int:id>/', views.eliminar_socio, name='eliminar_socio'),
+]
